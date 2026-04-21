@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -11,8 +12,10 @@
     background: #000;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
   }
 
+  /* HERO */
   .container {
     height: 100vh;
     display: flex;
@@ -23,7 +26,7 @@
   }
 
   h1 {
-    font-size: 48px;
+    font-size: 56px;
     margin-bottom: 10px;
   }
 
@@ -32,23 +35,24 @@
   }
 
   .buttons {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
-    gap: 10px;
+    gap: 12px;
   }
 
   .primary {
     background: white;
     color: black;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
     text-decoration: none;
+    font-weight: 600;
   }
 
   .secondary {
     border: 1px solid #444;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
     text-decoration: none;
     color: white;
   }
@@ -60,55 +64,80 @@
   }
 
   input, textarea {
-    width: 300px;
-    padding: 10px;
+    width: 320px;
+    padding: 12px;
     margin-top: 10px;
     background: #111;
     border: 1px solid #333;
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
   }
 
   button {
     margin-top: 15px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: 600;
   }
 
-  /* OVERLAY MINI PITCH */
+  /* OVERLAY */
   #mini-pitch {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: black;
+    background: rgba(0,0,0,0.96);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 999;
+    backdrop-filter: blur(6px);
   }
 
   .pitch-content {
+    max-width: 520px;
     text-align: center;
-    max-width: 500px;
-    animation: fadeIn 0.4s ease;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .pitch-content h2 {
+    font-size: 34px;
+  }
+
+  .pitch-content h3 {
+    margin-top: 30px;
+    font-size: 22px;
+    color: #ddd;
+  }
+
+  .pitch-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 30px auto;
   }
 
   .pitch-steps div {
     border: 1px solid rgba(255,255,255,0.1);
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 8px;
+    padding: 14px;
+    margin-top: 12px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .pitch-steps div:hover {
+    border-color: white;
+    transform: translateY(-2px);
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -116,11 +145,13 @@
     }
   }
 </style>
+
 </head>
 
 <body>
 
 <!-- HERO -->
+
 <div class="container">
   <h1>Acquisition</h1>
   <p>We build performance-driven growth systems.</p>
@@ -131,53 +162,88 @@
   </div>
 </div>
 
-<!-- FORM -->
+<!-- CONTACT FORM -->
+
 <div id="contact">
   <h2>Book a Call</h2>
 
-  <form action="https://formspree.io/f/mjgjeayq" method="POST">
-    
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <input type="hidden" name="_cc" value="youremail@gmail.com">
 
-    <br>
-    <input type="text" name="name" placeholder="Your Name" required>
-    <br>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <br>
-    <textarea name="message" placeholder="Tell us about your business"></textarea>
-    <br>
+```
+<br>
+<input type="text" name="name" placeholder="Your Name" required>
+<br>
+<input type="email" name="email" placeholder="Your Email" required>
+<br>
+<textarea name="message" placeholder="Tell us about your business"></textarea>
+<br>
 
-    <button type="submit">Submit</button>
+<button type="submit">Submit</button>
+```
+
   </form>
 </div>
 
-<!-- MINI PITCH OVERLAY -->
+<!-- SECRET OVERLAY -->
+
 <div id="mini-pitch">
   <div class="pitch-content">
 
-    <h2>How we scale brands predictably</h2>
-    <p>We build systems that turn attention into revenue.</p>
+```
+<h2>Most brands don’t have a real growth system</h2>
 
-    <div class="pitch-steps">
-      <div>01. Identify winning channels</div>
-      <div>02. Build high-converting creatives</div>
-      <div>03. Scale with data</div>
-    </div>
+<p style="margin-top:10px;">
+  They test ads, tweak creatives, and hope something works.
+  <br><br>
+  That’s why they plateau.
+</p>
 
-    <button onclick="closePitch()">Close</button>
+<div class="pitch-divider"></div>
+
+<h3>We build predictable acquisition systems</h3>
+
+<div class="pitch-steps">
+  <div><strong>01. Channel Domination</strong><br>Find where customers actually convert</div>
+  <div><strong>02. Creative Engine</strong><br>High-volume, high-converting creatives</div>
+  <div><strong>03. Scaling System</strong><br>Double down on winners, cut losers fast</div>
+</div>
+
+<div class="pitch-divider"></div>
+
+<p style="color:#bbb;">
+  Most agencies manage ads.
+  <br>
+  We build systems that scale revenue.
+</p>
+
+<button onclick="scrollToForm()">Book a Call</button>
+
+<br><br>
+
+<button onclick="closePitch()" style="background:none; color:#777;">
+  Close
+</button>
+```
 
   </div>
 </div>
 
-<!-- SCRIPT -->
 <script>
-  function showPitch(event) {
-    event.preventDefault();
+  function showPitch(e) {
+    e.preventDefault();
     document.getElementById("mini-pitch").style.display = "flex";
   }
 
   function closePitch() {
     document.getElementById("mini-pitch").style.display = "none";
+  }
+
+  function scrollToForm() {
+    closePitch();
+    document.getElementById("contact").scrollIntoView({
+      behavior: "smooth"
+    });
   }
 </script>
 
