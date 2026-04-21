@@ -95,15 +95,21 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
 
-  background: rgba(0, 0, 0, 0.98); /* darker so nothing shows through */
+  height: 100vh;
+  height: 100dvh; /* THIS is the key for iPhone */
+
+  background: rgba(0,0,0,0.98);
+  color: white;
 
   display: none;
   justify-content: center;
   align-items: center;
 
-  z-index: 99999; /* higher so NOTHING leaks through */
+  z-index: 99999;
+
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
   .pitch-content {
@@ -154,14 +160,14 @@
   }
 @media (max-width: 600px) {
   .pitch-content {
-    padding-top: 60px;
-    padding-bottom: 140px; /* increase this */
+    padding-top: 20px;   /* MUCH smaller now */
+    padding-bottom: 80px;
   }
 }
 @media (max-width: 600px) {
   #mini-pitch button {
     position: fixed;
-    bottom: 20px; /* was 25–30, lower = better spacing */
+    bottom: calc(20px + env(safe-area-inset-bottom));
     left: 50%;
     transform: translateX(-50%);
     z-index: 10000;
