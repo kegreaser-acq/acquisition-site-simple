@@ -11,6 +11,7 @@ body {
   font-family: -apple-system, sans-serif;
   background: #000;
   color: white;
+  scroll-behavior: smooth;
 }
 
 .hero {
@@ -28,7 +29,6 @@ body {
 h1 {
   font-size: 72px;
   margin: 0;
-  letter-spacing: -2px;
 }
 
 p {
@@ -46,7 +46,6 @@ a {
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s;
 }
 
 .primary {
@@ -59,29 +58,35 @@ a {
   color: white;
 }
 
-.secondary:hover {
-  background: white;
-  color: black;
-}
-
 .section {
   padding: 100px 20px;
   text-align: center;
 }
 
-.cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 16px;
-  width: 250px;
-  backdrop-filter: blur(10px);
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: #111;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -93,18 +98,26 @@ a {
   <p>We build performance-driven growth systems.</p>
 
   <div class="buttons">
-    <a href="#" class="primary">Book a Call</a>
+    <a href="#contact" class="primary">Book a Call</a>
     <a href="#services" class="secondary">Explore</a>
   </div>
 </div>
 
 <div id="services" class="section">
   <h2>What We Do</h2>
+  <p>Paid Ads • Creative • Analytics</p>
+</div>
 
-  <div class="cards">
-    <div class="card">Paid Ads</div>
-    <div class="card">Creative Strategy</div>
-    <div class="card">Analytics</div>
+<div id="contact" class="section">
+  <h2>Book a Call</h2>
+
+  <div class="form-container">
+    <form action="https://formspree.io/f/mzdyajde" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Tell us about your business"></textarea>
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </div>
 
