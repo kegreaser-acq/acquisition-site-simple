@@ -154,7 +154,16 @@
   }
 @media (max-width: 600px) {
   .pitch-content {
-    padding-top: 40px;
+    padding-top: 60px; /* pushes it down so text isn't cut */
+  }
+}
+@media (max-width: 600px) {
+  #mini-pitch button {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
   }
 }
 </style>
@@ -263,6 +272,31 @@
       behavior: "smooth"
     });
   }
+let startY = 0;
+
+const pitch = document.getElementById("mini-pitch");
+
+pitch.addEventListener("touchstart", function(e) {
+  startY = e.touches[0].clientY;
+});
+
+pitch.addEventListener("touchmove", function(e) {
+  let currentY = e.touches[0].clientY;
+  let diff = currentY - startY;
+
+  if (diff > 0) {
+    pitch.style.transform = `translateY(${diff}px)`;
+  }
+
+  if (diff > 120) {
+    pitch.style.transform = "translateY(0)";
+    closePitch();
+  }
+});
+
+pitch.addEventListener("touchend", function() {
+  pitch.style.transform = "translateY(0)";
+});
 </script>
 
 </body>
