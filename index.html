@@ -2,120 +2,126 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Acquisition</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-#mini-pitch {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-}
-body {
-  margin: 0;
-  font-family: -apple-system, sans-serif;
-  background: #000;
-  color: white;
-  scroll-behavior: smooth;
-}
+  body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent),
-    radial-gradient(circle at 70% 70%, rgba(255,255,255,0.05), transparent),
-    #000;
-}
+  .container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
 
-h1 {
-  font-size: 72px;
-  margin: 0;
-}
+  h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
 
-p {
-  color: #888;
-  margin: 20px 0 40px;
-}
+  p {
+    color: #aaa;
+  }
 
-.buttons {
-  display: flex;
-  gap: 15px;
-}
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
 
-a {
-  padding: 14px 28px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-}
+  .primary {
+    background: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
 
-.primary {
-  background: white;
-  color: black;
-}
+  .secondary {
+    border: 1px solid #444;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+  }
 
-.secondary {
-  border: 1px solid #444;
-  color: white;
-}
+  /* FORM */
+  #contact {
+    text-align: center;
+    margin-top: 150px;
+  }
 
-.section {
-  padding: 100px 20px;
-  text-align: center;
-}
+  input, textarea {
+    width: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 6px;
+  }
 
-.form-container {
-  max-width: 400px;
-  margin: 0 auto;
-}
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
 
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: none;
-  background: #111;
-  color: white;
-}
+  /* OVERLAY MINI PITCH */
+  #mini-pitch {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
 
-button {
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  background: white;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-}
+  .pitch-content {
+    text-align: center;
+    max-width: 500px;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .pitch-steps div {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>
 </head>
-<script>
-  function showPitch(event) {
-    event.preventDefault(); // stops link jump
 
-    const section = document.getElementById("mini-pitch");
-    
-    section.style.display = "block";
-
-    setTimeout(() => {
-      section.style.opacity = "1";
-      section.style.transform = "translateY(0)";
-    }, 10);
-
-    section.scrollIntoView({
-      behavior: "smooth"
-    });
-  }
-</script>
 <body>
 
-<div class="hero">
+<!-- HERO -->
+<div class="container">
   <h1>Acquisition</h1>
   <p>We build performance-driven growth systems.</p>
 
@@ -125,47 +131,55 @@ button {
   </div>
 </div>
 
-<div id="services" class="section">
-  <h2>What We Do</h2>
-  <p>Paid Ads • Creative • Analytics</p>
-</div>
-
-<div id="contact" class="section">
+<!-- FORM -->
+<div id="contact">
   <h2>Book a Call</h2>
 
-  <div class="form-container">
-    <form action="https://formspree.io/f/mjgjeayq" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Tell us about your business"></textarea>
-      <button type="submit">Submit</button>
-    </form>
+  <form action="https://formspree.io/f/mjgjeayq" method="POST">
+    
+    <input type="hidden" name="_cc" value="youremail@gmail.com">
+
+    <br>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <br>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <br>
+    <textarea name="message" placeholder="Tell us about your business"></textarea>
+    <br>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- MINI PITCH OVERLAY -->
+<div id="mini-pitch">
+  <div class="pitch-content">
+
+    <h2>How we scale brands predictably</h2>
+    <p>We build systems that turn attention into revenue.</p>
+
+    <div class="pitch-steps">
+      <div>01. Identify winning channels</div>
+      <div>02. Build high-converting creatives</div>
+      <div>03. Scale with data</div>
+    </div>
+
+    <button onclick="closePitch()">Close</button>
+
   </div>
 </div>
 
-<div id="mini-pitch" style="display: none; margin-top: 120px; text-align: center;">
-  
-  <h2 style="font-size: 28px; margin-bottom: 10px;">
-    How we scale brands predictably
-  </h2>
+<!-- SCRIPT -->
+<script>
+  function showPitch(event) {
+    event.preventDefault();
+    document.getElementById("mini-pitch").style.display = "flex";
+  }
 
-  <p style="color: #aaa; margin-bottom: 30px;">
-    We build systems that turn attention into revenue.
-  </p>
-
-  <div style="display: grid; gap: 12px; max-width: 500px; margin: 0 auto;">
-    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 8px;">
-      01. Identify winning channels
-    </div>
-    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 8px;">
-      02. Build high-converting creatives
-    </div>
-    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 8px;">
-      03. Scale with data
-    </div>
-  </div>
-
-</div>
+  function closePitch() {
+    document.getElementById("mini-pitch").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
