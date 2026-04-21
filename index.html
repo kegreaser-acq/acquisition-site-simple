@@ -9,11 +9,7 @@
 <title>Acquisition</title>
 
 <style>
-  @media (max-width: 600px) {
-  #mini-pitch {
-    padding-top: 80px; /* pushes everything down on iPhone */
-  }
-}
+
   body {
     margin: 0;
     background: #000;
@@ -94,38 +90,20 @@
 
   /* OVERLAY */
   
-  #mini-pitch {
+#mini-pitch {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100dvh;
+  height: 100vh; /* back to normal */
   background: rgba(0,0,0,0.95);
   color: white;
   display: none;
 
-  justify-content: flex-start; /* KEY CHANGE */
-  align-items: flex-start;     /* KEY CHANGE */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* THIS RECENTERS EVERYTHING */
 
-  overflow-y: auto; /* allows full scroll */
-  z-index: 9999;
-}
-
- #mini-pitch {
-  padding-top: 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh;
-  background: rgba(0,0,0,0.95);
-  color: white;
-  display: none;
-
-  justify-content: flex-start; /* KEY CHANGE */
-  align-items: flex-start;     /* KEY CHANGE */
-
-  overflow-y: auto; /* allows full scroll */
   z-index: 9999;
 }
 
@@ -169,6 +147,11 @@
       transform: translateY(0);
     }
   }
+  @media (max-width: 600px) {
+  .pitch-content {
+    transform: translateY(40px); /* gently pushes it down */
+  }
+}
 </style>
 
 </head>
