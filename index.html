@@ -6,6 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
+#mini-pitch {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
 body {
   margin: 0;
   font-family: -apple-system, sans-serif;
@@ -90,7 +95,24 @@ button {
 }
 </style>
 </head>
+<script>
+  function showPitch(event) {
+    event.preventDefault(); // stops link jump
 
+    const section = document.getElementById("mini-pitch");
+    
+    section.style.display = "block";
+
+    setTimeout(() => {
+      section.style.opacity = "1";
+      section.style.transform = "translateY(0)";
+    }, 10);
+
+    section.scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+</script>
 <body>
 
 <div class="hero">
@@ -99,7 +121,7 @@ button {
 
   <div class="buttons">
     <a href="#contact" class="primary">Book a Call</a>
-    <a href="#services" class="secondary">Explore</a>
+    <a href="#" class="secondary" onclick="showPitch(event)">Explore</a>
   </div>
 </div>
 
@@ -119,6 +141,30 @@ button {
       <button type="submit">Submit</button>
     </form>
   </div>
+</div>
+
+<div id="mini-pitch" style="display: none; margin-top: 120px; text-align: center;">
+  
+  <h2 style="font-size: 28px; margin-bottom: 10px;">
+    How we scale brands predictably
+  </h2>
+
+  <p style="color: #aaa; margin-bottom: 30px;">
+    We build systems that turn attention into revenue.
+  </p>
+
+  <div style="display: grid; gap: 12px; max-width: 500px; margin: 0 auto;">
+    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 8px;">
+      01. Identify winning channels
+    </div>
+    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 8px;">
+      02. Build high-converting creatives
+    </div>
+    <div style="border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 8px;">
+      03. Scale with data
+    </div>
+  </div>
+
 </div>
 
 </body>
