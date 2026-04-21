@@ -95,18 +95,23 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh; /* back to normal */
-  background: rgba(0,0,0,0.95);
-  color: white;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.98); /* darker so nothing shows through */
+
   display: none;
-
-  display: flex;
   justify-content: center;
-  align-items: center; /* THIS RECENTERS EVERYTHING */
+  align-items: center;
 
-  z-index: 9999;
+  z-index: 99999; /* higher so NOTHING leaks through */
 }
 
+  .pitch-content {
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+}
   .pitch-content h2 {
     font-size: 34px;
   }
@@ -147,9 +152,9 @@
       transform: translateY(0);
     }
   }
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
   .pitch-content {
-    transform: translateY(40px); /* gently pushes it down */
+    padding-top: 40px;
   }
 }
 </style>
