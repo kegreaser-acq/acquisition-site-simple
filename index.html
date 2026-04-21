@@ -92,31 +92,30 @@
   
 #mini-pitch {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-
-  height: 100vh;
-  height: 100dvh; /* THIS is the key for iPhone */
+  inset: 0;
 
   background: rgba(0,0,0,0.98);
   color: white;
 
   display: none;
   justify-content: center;
-  align-items: center;
+
+  /* ⬇️ THIS is the fix */
+  align-items: flex-start;
 
   z-index: 99999;
-
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
 }
-
-  .pitch-content {
+.pitch-content {
   text-align: center;
   width: 90%;
   max-width: 500px;
   margin: 0 auto;
+
+  margin-top: 80px;
+  margin-bottom: 120px;
+
+  max-height: calc(100vh - 200px);
+  overflow: hidden;
 }
   .pitch-content h2 {
     font-size: 34px;
@@ -167,7 +166,7 @@
 @media (max-width: 600px) {
   #mini-pitch button {
     position: fixed;
-    bottom: calc(20px + env(safe-area-inset-bottom));
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10000;
