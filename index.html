@@ -154,13 +154,14 @@
   }
 @media (max-width: 600px) {
   .pitch-content {
-    padding-top: 60px; /* pushes it down so text isn't cut */
+    padding-top: 60px;
+    padding-bottom: 100px; /* THIS fixes bottom cutoff */
   }
 }
 @media (max-width: 600px) {
   #mini-pitch button {
     position: fixed;
-    bottom: 30px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10000;
